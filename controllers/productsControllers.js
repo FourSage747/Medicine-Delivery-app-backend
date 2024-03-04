@@ -1,4 +1,4 @@
-const Product = require("../models/product")
+const {Product, Shopping} = require("../models/product")
 
 // const HttpError = require("../helpers/HttpError")
 // const {
@@ -17,47 +17,20 @@ const getAllProducts = async (req, res, next) => {
     }
 };
 
-// const getOneContact = async (req, res, next) => {
-//     try {
-//         const {id} = req.params
-//         const result = await Contact.findById(id)
-//         if(!result){
-//             throw HttpError(404, "Not found")
-//         }
-//         res.json(result)
-//     }
-//     catch(error) {
-//         next(error)
-//     }
-// };
 
-// const deleteContact = async (req, res, next) => {
-//     try {
-//         const {id} = req.params
-//         const result = await Contact.findByIdAndDelete(id)
-//         if(!result){
-//             throw HttpError(404, "Not found")
-//         }
-//         res.json(result)
-//     }
-//     catch(error) {
-//         next(error)
-//     }
-// };
-
-// const createContact = async (req, res, next) => {
-//     try {
-//         const {error} = createContactSchema.validate(req.body)
-//         if(error){
-//             throw HttpError(400, error.message)
-//         }
-//         const result = await Contact.create(req.body)
-//         res.status(201).json(result)
-//     }
-//     catch(error) {
-//         next(error)
-//     }
-// };
+const createShopping = async (req, res, next) => {
+    try {
+        // const {error} = createContactSchema.validate(req.body)
+        // if(error){
+        //     throw HttpError(400, error.message)
+        // }
+        const result = await Shopping.create(req.body)
+        res.status(201).json(result)
+    }
+    catch(error) {
+        next(error)
+    }
+};
 
 // const updateContact = async (req, res, next) => {
 //     try {
@@ -105,6 +78,7 @@ const getAllProducts = async (req, res, next) => {
 
 module.exports = {
     getAllProducts,
+    createShopping
     // getOneContact,
     // deleteContact,
     // createContact,

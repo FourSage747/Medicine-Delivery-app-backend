@@ -12,6 +12,7 @@ const app = express();
 
 
 const productsRouter = require("./routes/productsRouter")
+const shoppingRouter = require("./routes/shoppingRouter")
 
 
 app.use(morgan("tiny"));
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/products", productsRouter);
+app.use("/api/shopping", shoppingRouter);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });
